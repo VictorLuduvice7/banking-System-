@@ -14,9 +14,10 @@ public class SistemaBancario {
     public static void main(String[] args) {
         while (true) {
             System.out.println("1. Criar usuário");
-            System.out.println("2. Criar banco");
-            System.out.println("3. Acessar banco");
-            System.out.println("4. Sair");
+            System.out.println("2. Listar usuários");
+            System.out.println("3. Criar banco");
+            System.out.println("4. Acessar banco");
+            System.out.println("5. Sair");
             System.out.print("Escolha uma opção: ");
             int opcao = scanner.nextInt();
             scanner.nextLine();
@@ -26,12 +27,14 @@ public class SistemaBancario {
                     cadastrarUsuario();
                     break;
                 case 2:
-                    criarBanco();
+                    listarUsuarios();
                     break;
                 case 3:
-                    acessarBanco();
+                    criarBanco();
                     break;
                 case 4:
+                    acessarBanco();
+                case 5:
                     System.out.println("Saindo...");
                     return;
                 default:
@@ -48,6 +51,15 @@ public class SistemaBancario {
         String cpf = scanner.nextLine();
         usuarios.add(new Usuario(nome, cpf));
         System.out.println("Usuário cadastrado com sucesso!");
+    }
+
+    private static void listarUsuarios(){
+        System.out.println("Lista De Usuários:");
+        for (Usuario usuario : usuarios){
+            System.out.println("- Nome: " + usuario.getNome());
+            System.out.println("  ID: " + usuario.getId());
+            System.out.println("  CPF: " + usuario.getCpf());
+        }
     }
 
     private static void criarBanco() {
