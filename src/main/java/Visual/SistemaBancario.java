@@ -71,7 +71,7 @@ public class SistemaBancario {
             return;
         }
         System.out.print("Digite a senha (4 dígitos): ");
-        String senha = scanner.nextLine();
+        String senha = scanner.nextLine().trim();
         Banco banco = new Banco(nomeUsuario, senha);
         System.out.println("Banco criado com sucesso para o usuário: " + nomeUsuario);
         // Aqui você pode adicionar o banco ao usuário se precisar
